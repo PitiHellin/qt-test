@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>colorChange.qml</file>
+        <file>rotationTriangle.qml</file>
+        <file>changeDiameter.qml</file>
+        <file>returningBall.qml</file>
+    </qresource>
+    <qresource prefix="/files">
+        <file>Images/triangle.png</file>
+    </qresource>
+</RCC>
