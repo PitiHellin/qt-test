@@ -15,7 +15,6 @@ Rectangle {
         y: 76
         width: 215
         height: 22
-        //onValueChanged: console.log("value: ",value)
         value: 1
     }
     Rectangle {
