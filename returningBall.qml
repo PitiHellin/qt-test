@@ -1,4 +1,4 @@
-import QtQuick 2.3
+import QtQuick 2.7
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
 
@@ -7,6 +7,7 @@ Rectangle {
     y: 6
     width: 464
     height: 173
+    state: "RELEASED"
 
     Slider {
         id: sliderHorizontal1
@@ -14,24 +15,41 @@ Rectangle {
         y: 143
         width: 448
         height: 22
-        MouseArea{
-            id: sliderMouseArea
-            hoverEnabled: true
-            onEntered: {
-//                rectangle1.x.valueOf(430)
-//                rectangle1.x.value*430
-            }
-            onExited: {
-                rectangle1.x.valueOf(0)
-
-            }
-        }
     }
+
+    MouseArea{
+        id: mouseAreaRB
+        onPressed: sliderHorizontal1.state = "PRESSED"
+        onReleased: sliderHorizontal1.state = "RELEASED"
+    }
+    // @disable-check M10
+    state: [
+        State {
+            name: "PRESSED"
+            PropertyChanges { target: sliderHorizontal1}
+        },
+        State {
+            name: "RELEASED"
+            PropertyChanges { target: sliderHorizontal1}
+        }
+    ]
+    // @disable-check M16
+    transitons: [
+
+        Transition {
+            from: "PRESSED"
+            to: "RELEASED"
+        },
+        Transition {
+            from: "RELEASED"
+            to: "PRESSED"
+        }
+
+    ]
 
     Rectangle {
         id: rectangle1
         x: sliderHorizontal1.value*430
-//        x: 0
         y: 62
         width: 30
         height: 30
@@ -39,4 +57,6 @@ Rectangle {
         border.color: "black"
         radius: 100
     }
+
+
 }
