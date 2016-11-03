@@ -14,6 +14,29 @@ Rectangle {
         y: 143
         width: 448
         height: 22
+        MouseArea{
+            id: sliderMouseArea
+            hoverEnabled: true
+            onEntered: {
+//                rectangle1.x.valueOf(430)
+//                rectangle1.x.value*430
+            }
+            onExited: {
+                rectangle1.x.valueOf(0)
+
+            }
+        }
     }
 
+    Rectangle {
+        id: rectangle1
+        x: sliderHorizontal1.value*430
+//        x: 0
+        y: 62
+        width: 30
+        height: 30
+        color: "#ffffff"
+        border.color: "black"
+        radius: 100
+    }
 }
