@@ -17,6 +17,7 @@ Rectangle {
         color: "#ffffff"
         border.color: "black"
         radius: 100
+        state: "LEFTSIDE"
         states: [
             State {
                 name: "LEFTSIDE"
@@ -35,6 +36,29 @@ Rectangle {
             }
 
         ]
+        transitions: [
+            Transition {
+                from: "LEFTSIDE"
+                to: "RIGHTSIDE"
+                NumberAnimation{
+                    target: rectangle1
+                    duration: 2000
+                    easing.type: Easing.InOutSine
+                    property: "x"
+                }
+
+            },
+            Transition{
+                from: "RIGHTSIDE"
+                to: "LEFTSIDE"
+                NumberAnimation{
+                    target: rectangle1
+                    duration: 2000
+                    easing.type: Easing.InOutSine
+                    property: "x"
+                }
+            }
+        ]
     }
 
     Rectangle{
@@ -47,7 +71,6 @@ Rectangle {
         MouseArea{
             anchors.fill: parent
             onClicked: {
-                //rectangle1.x = 8
                 rectangle1.state = "LEFTSIDE"
             }
         }
@@ -63,7 +86,6 @@ Rectangle {
         MouseArea{
             anchors.fill: parent
             onClicked:{
-                //rectangle1.x = 472-rectangle1.width
                 rectangle1.state = "RIGHTSIDE"
             }
         }
