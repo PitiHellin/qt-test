@@ -17,6 +17,24 @@ Rectangle {
         color: "#ffffff"
         border.color: "black"
         radius: 100
+        states: [
+            State {
+                name: "LEFTSIDE"
+                PropertyChanges {
+                    target: rectangle1
+                    x: 8
+                }
+            },
+            State{
+                name: "RIGHTSIDE"
+                PropertyChanges{
+                    target: rectangle1
+                    x: 472-rectangle1.width
+
+                }
+            }
+
+        ]
     }
 
     Rectangle{
@@ -29,7 +47,8 @@ Rectangle {
         MouseArea{
             anchors.fill: parent
             onClicked: {
-                rectangle1.x = 8
+                //rectangle1.x = 8
+                rectangle1.state = "LEFTSIDE"
             }
         }
     }
@@ -44,7 +63,8 @@ Rectangle {
         MouseArea{
             anchors.fill: parent
             onClicked:{
-                rectangle1.x = 472-rectangle1.width
+                //rectangle1.x = 472-rectangle1.width
+                rectangle1.state = "RIGHTSIDE"
             }
         }
     }
