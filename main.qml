@@ -11,7 +11,7 @@ Window {
     StackView {
         id: stackTop
         initialItem: view
-        width:464
+        width:480
         height:173
 
         Component {
